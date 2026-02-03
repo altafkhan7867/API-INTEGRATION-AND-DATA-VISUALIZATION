@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Pro - Real-time Weather Forecast</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">🌤️</div>
+                    <div class="logo-text">
+                        <h1>Weather World</h1>
+                        <p class="subtitle">Real-time Weather Intelligence</p>
+                    </div>
+                </div>
+                
+                <div class="search-box">
+                    <input type="text" id="cityInput" placeholder="Search for any city..." value="London">
+                    <button id="searchBtn">Search</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div id="loading" class="loading hidden">🔄 Fetching weather data...</div>
+            <div id="error" class="error hidden"></div>
+
+            <div id="weatherData" class="weather-data hidden">
+                <!-- Hero Section - Current Weather -->
+                <section class="weather-hero">
+                    <div class="hero-left">
+                        <div class="city-info">
+                            <h2 class="city-name" id="cityName"></h2>
+                            <div class="current-time" id="currentTime">
+                                <span>📅</span>
+                                <span id="dateTime"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="temperature-display">
+                            <div class="main-temp" id="temperature"></div>
+                            <div class="temp-details">
+                                <div class="weather-description" id="description"></div>
+                                <div class="feels-like-text">
+                                    Feels like <strong id="feelsLike"></strong>°C
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-right">
+                        <div class="mini-stat">
+                            <div class="mini-stat-icon">💨</div>
+                            <div class="mini-stat-label">Wind Speed</div>
+                            <div class="mini-stat-value">
+                                <span id="windSpeed"></span>
+                                <span class="mini-stat-unit">m/s</span>
+                            </div>
+                        </div>
+
+                        <div class="mini-stat">
+                            <div class="mini-stat-icon">💧</div>
+                            <div class="mini-stat-label">Humidity</div>
+                            <div class="mini-stat-value">
+                                <span id="humidity"></span>
+                                <span class="mini-stat-unit">%</span>
+                            </div>
+                        </div>
+
+                        <div class="mini-stat">
+                            <div class="mini-stat-icon">🌡️</div>
+                            <div class="mini-stat-label">Pressure</div>
+                            <div class="mini-stat-value">
+                                <span id="pressure"></span>
+                                <span class="mini-stat-unit">hPa</span>
+                            </div>
+                        </div>
+
+                        <div class="mini-stat">
+                            <div class="mini-stat-icon">👁️</div>
+                            <div class="mini-stat-label">Visibility</div>
+                            <div class="mini-stat-value">
+                                <span id="visibility"></span>
+                                <span class="mini-stat-unit">km</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Additional Weather Info -->
+                <section class="additional-info">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-icon">🌅</div>
+                            <div class="info-content">
+                                <h4>Sunrise</h4>
+                                <p id="sunrise"></p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">🌇</div>
+                            <div class="info-content">
+                                <h4>Sunset</h4>
+                                <p id="sunset"></p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">☁️</div>
+                            <div class="info-content">
+                                <h4>Cloudiness</h4>
+                                <p id="cloudiness"></p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">🧭</div>
+                            <div class="info-content">
+                                <h4>Wind Direction</h4>
+                                <p id="windDirection"></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 7-Day Forecast -->
+                <section class="forecast-section">
+                    <div class="section-header">
+                        <h3 class="section-title">7-Day Forecast</h3>
+                    </div>
+                    <div id="forecastContainer" class="forecast-container"></div>
+                </section>
+
+                <!-- Charts -->
+                <section class="charts-section">
+                    <div class="charts-grid">
+                        <div class="chart-container">
+                            <h3 class="chart-title">Current Conditions</h3>
+                            <canvas id="currentChart"></canvas>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <h3 class="chart-title">Temperature Trend</h3>
+                            <canvas id="forecastChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="weather-footer">
+                    <div class="footer-content">
+                        <p>Data provided by OpenWeatherMap API</p>
+                        <p class="last-updated">Last updated: <span id="lastUpdated"></span></p>
+                    </div>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
